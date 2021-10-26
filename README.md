@@ -2,9 +2,12 @@
 
 The project contains the followings apps:
 
-posts:  to create, update, delete and like the post
-accounts: for authentication to the app (login, logout, signup)
-api : the restfulApi build on the top of the app using django rest framework
+-posts:  to create, update, delete and like the post
+
+-accounts: for authentication to the app (login, logout, signup)
+
+-api : the restfulApi build on the top of the app using django rest framework
+
 You will need  to install django-pytest to run the tests. I created in each apps (posts and accounts) a folder named tests and all files test_* are there.
 
 After running the project:
