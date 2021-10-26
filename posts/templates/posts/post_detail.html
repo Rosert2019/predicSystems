@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="containter">
+    <li> <strong>Title:</strong> {{ post.title}}</li>
+    <li><strong>Created at:</strong> {{ post.created_at }}</li>
+    <li><strong>Author:</strong> {{ post.author }}</li>
+    <li> <strong>Body:</strong> {{ post.body }}</li>     
+</div>
+
+<hr>
+<br>
+<p>
+<form action="{% url 'post_like' pk=post.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit" name="post-id" value="{{post.id}}" class="btn btn-primary ml-3"> Like post!
+    </button>
+</form>
+</p>
+
+<p><strong>{{ number_of_likes }} Likes </strong></p>
+
+<p><a href="{% url 'post_edit' post.pk %}">+Update  the post </a></p>
+<p><a href="{% url 'post_delete' post.pk %}">- Delete the post</a></p>
+{% endblock content %}

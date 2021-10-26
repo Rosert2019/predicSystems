@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>All posted posts</h1>
+{% if not user.is_authenticated %} 
+ <p>Login to see the detail of each post</p>
+{% endif %}  
+
+  {% for post in object_list %}
+  
+    <div class="container">
+      <ul class="list-unstyled">
+          <hr>
+        <li> <strong>Title:</strong> {{ post.title}}</li>
+        <li><strong>Created at:</strong> {{ post.created_at }}</li>
+        <li><strong>Author:</strong> {{ post.author }}</li>
+        <li><strong>Number of Likes:</strong> {{ post.number_of_likes }}</li>
+        {% if user.is_authenticated %} 
+        <li> <strong>Body:</strong> {{ post.body }}</li>
+        <li><a href="{% url 'post_detail' post.pk %}">See in detail the post</a></li>
+   
+    </ul>
+   <hr>
+  </div>
+   {% endif %}  
+{% endfor %}
+{% endblock content %}
